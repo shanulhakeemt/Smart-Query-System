@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smart_query_system/core/theme/pallete.dart';
 import 'package:smart_query_system/features/home/view/pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Pallete.submitButton),
           scaffoldBackgroundColor: Pallete.background,
           textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme)),
       home: const HomePage(),
